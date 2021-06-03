@@ -60,79 +60,110 @@ function my_keydown(e) {
         console.log("Down");
         down();
     }
+
     if(car1_X>700){
         console.log("Car 1 Won");
-        document.getElementById('game_status').innerHTML="Car 2 Won!!";
+        document.getElementById('game_status').innerHTML="Car 1 Won!!";
+    }
+
+    if (keyPressed == '65') {
+        console.log("A for car 2");
+        car2_up();
+    }
+    if (keyPressed == '83') {
+        console.log("S for car 2");
+        car2_right();
+    }
+    if (keyPressed == '68') {
+        console.log("D for car 2");
+        car2_left();
+    }
+    if (keyPressed == '70') {
+        console.log("F for car2");
+        car2_down();
     }
     if(car2_X>700){
         console.log("Car 2 Won");
         document.getElementById('game_status').innerHTML="Car 2 Won!!";
     }
 }
-function up(){
-    if ( car1_Y >= 0) {
+
+function up() {
+    if (car1_Y >= 0) {
         car1_Y -= 10;
-        console.log("the up arrow key was pressed "+ " x="+car1_X+"y="+car1_Y);
-        uploadBackground;
-        uploadCar1;
+        console.log("The up arow is pressed x= " + car1_X + "y=" + car1_Y);
+        uploadBackground();
+        uploadCar1();
+        uploadCar2();
+    }
 }
-}
+
 function down() {
     if (car1_Y <= 500) {
         car1_Y += 10;
-        console.log("the down arrow key was pressed "+ " x="+car1_X+"y="+car1_Y);
+        console.log("The down arow is pressed x=" + car1_X + "y=" + car1_Y);
         uploadBackground();
         uploadCar1();
+        uploadCar2();
     }
 }
+
 function left() {
     if (car1_X >= 0) {
-
         car1_X -= 10;
         console.log("The left arow is pressed x=" + car1_X + "y=" + car1_Y);
         uploadBackground();
         uploadCar1();
+        uploadCar2();
     }
 }
 
 function right() {
-    if (rover_X <= 700) {
-        rover_X += 10;;
-        console.log("The Right arow is pressed x=" + rover_X + "y=" + rover_Y);
+    if (car1_X <= 700) {
+        car1_X += 10;;
+        console.log("The Right arow is pressed x=" + car1_X + "y=" + car1_Y);
         uploadBackground();
+        uploadCar1();
+        uploadCar2();
+    }
+}
+
+function car2_up() {
+    if (car2_Y >= 0) {
+        car2_Y -= 10;
+        console.log(" A is pressed x= " + car2_X + "y=" + car2_Y);
+        uploadBackground();
+        uploadCar2();
         uploadCar1();
     }
 }
-function up(){
-    if ( car2_Y >= 0) {
-        car2_Y -= 10;
-        console.log("the up arrow key was pressed of car 2 "+ " x="+car2_X+"y="+car2_Y);
-        uploadBackground;
-        uploadCar2;
-}
-}
-function down() {
+
+function car2_down() {
     if (car2_Y <= 500) {
         car2_Y += 10;
-        console.log("the down arrow key was pressed of car  2"+ " x="+car2_X+"y="+car2_Y);
+        console.log("S is pressed x=" + car2_X + "y=" + car2_Y);
         uploadBackground();
         uploadCar2();
-    }
-}
-function left() {
-    if (car2_X >= 0) {
-        car2_X -= 10;
-        console.log("The left arow is pressed of car2  x=" + car2_X + "y=" + car2_Y);
-        uploadBackground();
-        uploadCar2();
+        uploadCar1();
     }
 }
 
-function right() {
-    if (car2_X <= 700) {
-       car2_X += 10;;
-        console.log("The Right arow is pressed x=" + car2_X + "y=" + car2_Y);
+function car2_left() {
+    if (car2_X >= 0) {
+        car2_X -= 10;
+        console.log("D pressed x=" + car2_X + "y=" + car2_Y);
         uploadBackground();
         uploadCar2();
+        uploadCar1();
+    }
+}
+
+function car2_right() {
+    if (car2_X <= 700) {
+        car2_X += 10;;
+        console.log("F is pressed x=" + car2_X + "y=" + car2_Y);
+        uploadBackground();
+        uploadCar2();
+        uploadCar1();
     }
 }
